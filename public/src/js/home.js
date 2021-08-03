@@ -1,5 +1,5 @@
 $("#filter").change(function ($val) {
-    filterPart(this.value())
+    filterPart(this.value)
 })
 
 function filterPart(part){
