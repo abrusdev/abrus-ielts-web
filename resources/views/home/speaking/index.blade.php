@@ -29,6 +29,7 @@
                     <option value="1" @if($part == 1) selected @endif>Part-1</option>
                     <option value="2" @if($part == 2) selected @endif>Part-2</option>
                     <option value="3" @if($part == 3) selected @endif>Part-3</option>
+                    <option value="-1" @if($part == -1) selected @endif>All</option>
                 </select>
             </form>
         </div>
@@ -47,6 +48,11 @@
                     <th scope="row">{{ $topic['id'] }}</th>
                     <td>{{ $topic["name"] }}</td>
                     <td>{{ $topic["part"] }}</td>
+                    <td class="col-1">
+                        <form action="{{ route("speaking.questions", $topic['id']) }}" method="GET">
+                            <button class="btn btn-primary">Next</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
@@ -63,6 +69,16 @@
 
             <tbody id="part-3" class="@if($part != 3) d-none @endif">
             @foreach($topics->where("part", 3) as $topic)
+                <tr>
+                    <th scope="row">{{ $topic['id'] }}</th>
+                    <td>{{ $topic["name"] }}</td>
+                    <td>{{ $topic["part"] }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+
+            <tbody id="part-all" class="@if($part != -1) d-none @endif">
+            @foreach($topics->where("part") as $topic)
                 <tr>
                     <th scope="row">{{ $topic['id'] }}</th>
                     <td>{{ $topic["name"] }}</td>

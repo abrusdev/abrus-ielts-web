@@ -20,7 +20,9 @@ Route::get('/', function () {
 
 Route::group(["prefix" => "/home"], function () {
 
-    Route::get("/speaking", "App\\Http\\Controllers\\Home\\SpeakingController@index")->name("speaking.topics");
-    Route::post("/speaking", "App\\Http\\Controllers\\Home\\SpeakingController@store");
+    Route::get("/speaking", "App\\Http\\Controllers\\Home\\Speaking\\IndexController@index")->name("speaking.topics");
+    Route::post("/speaking", "App\\Http\\Controllers\\Home\\Speaking\\IndexController@store");
+
+    Route::get("/speaking/{id}/questions", "App\\Http\\Controllers\\Home\\Speaking\\QuestionController@index")->name("speaking.questions");
 
 });

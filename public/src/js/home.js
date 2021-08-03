@@ -3,7 +3,7 @@ $("#filter").change(function ($val) {
 })
 
 function filterPart(part){
-    [$("#part-1"), $("#part-2"), $("#part-3")].forEach(function ($item) {
+    [$("#part-1"), $("#part-2"), $("#part-3"), $("#part-all")].forEach(function ($item) {
         $item.addClass("d-none");
     })
     if (parseInt(part) === 1){
@@ -14,5 +14,8 @@ function filterPart(part){
     }
     if (parseInt(part) === 3){
         $("#part-3").removeClass("d-none")
+    }
+    if (parseInt(part) === -1){
+        $("#part-all").removeClass("d-none")
     }
 }

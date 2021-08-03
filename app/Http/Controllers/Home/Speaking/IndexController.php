@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Home\Speaking;
 
 use App\Http\Controllers\Controller;
 use App\Models\Passage;
@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
-class SpeakingController extends Controller
+class IndexController extends Controller
 {
     public static function index(Request $request)
     {
