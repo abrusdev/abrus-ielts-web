@@ -11,16 +11,22 @@ class QuestionController extends Controller
 {
     public static function index($id)
     {
-//        Question::create([
-//            "name" => "Test",
-//            "topic_id" => 11
-//        ]);
-
         $topic = Topic::whereId($id)->first();
 
         return \Response::view("home.speaking.question", [
+            "id" => $id,
             "topic" => $topic["name"],
             "questions" => $topic->questions
         ]);
+    }
+
+    public static function store($id, Request $request)
+    {
+        Question::create([
+            "name" => $request['name'],
+            "topic_id" => $id
+        ]);
+
+        return redirect()->route("speaking.questions", $id);
     }
 }

@@ -24,5 +24,6 @@ Route::group(["prefix" => "/home"], function () {
     Route::post("/speaking", "App\\Http\\Controllers\\Home\\Speaking\\IndexController@store");
 
     Route::get("/speaking/{id}/questions", "App\\Http\\Controllers\\Home\\Speaking\\QuestionController@index")->name("speaking.questions");
+    Route::post("/speaking/{id}/questions", "App\\Http\\Controllers\\Home\\Speaking\\QuestionController@store");
 
 });

@@ -4,10 +4,10 @@
 
     <div class="container d-flex justify-content-center flex-column align-items-center p-4">
         <div class="col-6 bg-white">
-            <form action="" method="POST" class="p-4">
+            <form action="{{ route("speaking.questions", $id) }}" method="POST" class="p-4">
                 @csrf
                 <div class="mb-3">
-                    <h2>{{ $topic }}</h2>
+                    <h5 class="text-center">{{ $topic }}</h5>
 
                     <label for="name" class="form-label">Questions:</label>
                     <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" required>
