@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\Response;
 
 class SpeakingController extends Controller
 {
-    public static function index()
+    public static function index(Request $request)
     {
         $passages = Passage::all();
         $topics = Topic::all();
 
         return Response::view("home.speaking.index", [
             "passages" => $passages,
-            "topics" => $topics
+            "topics" => $topics,
+            "part" => $request["part"] ?? 1
         ]);
     }
 
@@ -29,6 +30,9 @@ class SpeakingController extends Controller
             "part" => $request["part"],
             "passage_id" => 1
         ]);
-        return Response::redirectTo("/home/speaking");
+
+        return redirect()->route("speaking.topics", [
+            "part" => $request["part"]
+        ]);
     }
 }

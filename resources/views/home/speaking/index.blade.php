@@ -8,14 +8,14 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Topic's name</label>
-                    <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+                    <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="part" class="form-label">Speaking Parts</label>
                     <select type="text" name="part" class="form-control" id="part">
-                        <option value="1">Part-1</option>
-                        <option value="2">Part-2</option>
-                        <option value="3">Part-3</option>
+                        <option value="1" @if($part == 1) selected @endif>Part-1</option>
+                        <option value="2" @if($part == 2) selected @endif>Part-2</option>
+                        <option value="3" @if($part == 3) selected @endif>Part-3</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 w-100 mb-4">Submit</button>
