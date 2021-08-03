@@ -22,7 +22,18 @@
             </form>
         </div>
 
-        <table class="mt-5 table table-light table-striped table-hover">
+        <div class="mt-3 w-100 d-flex justify-content-end ">
+            <form action="{{ route("speaking.topics") }}" method="GET"
+                  class="bg-light p-2">
+                <select name="filter" class="form-control" id="filter">
+                    <option value="1" @if($part == 1) selected @endif>Part-1</option>
+                    <option value="2" @if($part == 2) selected @endif>Part-2</option>
+                    <option value="3" @if($part == 3) selected @endif>Part-3</option>
+                </select>
+            </form>
+        </div>
+
+        <table class="table table-light table-striped table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -30,8 +41,28 @@
                 <th scope="col">Part</th>
             </tr>
             </thead>
-            <tbody>
-            @foreach($topics as $topic)
+            <tbody id="part-1" class="@if($part != 1) d-none @endif">
+            @foreach($topics->where("part",1) as $topic)
+                <tr>
+                    <th scope="row">{{ $topic['id'] }}</th>
+                    <td>{{ $topic["name"] }}</td>
+                    <td>{{ $topic["part"] }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+
+            <tbody id="part-2" class="@if($part != 2) d-none @endif">
+            @foreach($topics->where("part", 2) as $topic)
+                <tr>
+                    <th scope="row">{{ $topic['id'] }}</th>
+                    <td>{{ $topic["name"] }}</td>
+                    <td>{{ $topic["part"] }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+
+            <tbody id="part-3" class="@if($part != 3) d-none @endif">
+            @foreach($topics->where("part", 3) as $topic)
                 <tr>
                     <th scope="row">{{ $topic['id'] }}</th>
                     <td>{{ $topic["name"] }}</td>
