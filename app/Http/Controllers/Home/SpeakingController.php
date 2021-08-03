@@ -14,7 +14,7 @@ class SpeakingController extends Controller
     public static function index(Request $request)
     {
         $passages = Passage::all();
-        $topics = Topic::all();
+        $topics = Topic::all()->sortByDesc("id");
 
         return Response::view("home.speaking.index", [
             "passages" => $passages,
