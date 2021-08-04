@@ -63,6 +63,11 @@
                     <th scope="row">{{ $topic['id'] }}</th>
                     <td>{{ $topic["name"] }}</td>
                     <td>{{ $topic["part"] }}</td>
+                    <td class="col-1">
+                        <form action="{{ route("speaking.questions", $topic['id']) }}" method="GET">
+                            <button class="btn btn-primary">Next</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
@@ -73,6 +78,11 @@
                     <th scope="row">{{ $topic['id'] }}</th>
                     <td>{{ $topic["name"] }}</td>
                     <td>{{ $topic["part"] }}</td>
+                    <td class="col-1">
+                        <form action="{{ route("speaking.questions", $topic['id']) }}" method="GET">
+                            <button class="btn btn-primary">Next</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
