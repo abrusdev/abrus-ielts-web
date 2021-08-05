@@ -16,7 +16,8 @@ class IndexController extends Controller
     public function index()
     {
         $data = [
-            "speaking" => Passage::whereId(1)->first()->topics()->count()
+            "speaking" => Passage::whereId(1)->first()->topics()->count(),
+            "writing" => 0
         ];
 
         $passages = [
