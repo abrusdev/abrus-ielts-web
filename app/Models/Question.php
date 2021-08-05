@@ -24,9 +24,8 @@ class Question extends Model
             ->toArray();
 
         return DB::table("questions")
-            ->where("topic_id", $topicIds);
+            ->whereIn("topic_id", $topicIds);
     }
-
 
 
 

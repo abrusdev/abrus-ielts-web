@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Passage;
 use App\Models\Question;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -14,6 +15,9 @@ class IndexController extends Controller
 
     public function index()
     {
+        $data = [
+            "speaking" => Passage::whereId(1)->first()->topics()->count()
+        ];
 
         $passages = [
             [
@@ -34,6 +38,7 @@ class IndexController extends Controller
         ];
 
         $data = [
+            "data" => $data,
             "passages" => $passages,
             "topics" => Topic::all()
         ];
