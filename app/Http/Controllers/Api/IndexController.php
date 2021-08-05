@@ -23,24 +23,26 @@ class IndexController extends Controller
             [
                 "name" => "Part 1 - Question with Answers",
                 "passage" => "Speaking",
-                "questions" => Question::getSpeakingQuestions(1)->count()
+                "questions" => Question::getSpeakingQuestions(1)->count(),
+                "topics" => Topic::wherePassageId(1)->where("part", 1)->get()
             ],
             [
                 "name" => "Part 2 - Question with Answers",
                 "passage" => "Speaking",
-                "questions" => Question::getSpeakingQuestions(2)->count()
+                "questions" => Question::getSpeakingQuestions(2)->count(),
+                "topics" => Topic::wherePassageId(1)->where("part", 2)->get()
             ],
             [
                 "name" => "Part 3 - Question with Answers",
                 "passage" => "Speaking",
-                "questions" => Question::getSpeakingQuestions(3)->count()
+                "questions" => Question::getSpeakingQuestions(3)->count(),
+                "topics" => Topic::wherePassageId(1)->where("part", 3)->get()
             ]
         ];
 
         $data = [
             "data" => $data,
-            "passages" => $passages,
-            "topics" => Topic::all()
+            "passages" => $passages
         ];
         return $data;
     }
