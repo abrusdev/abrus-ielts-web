@@ -18,4 +18,8 @@ class Topic extends Model
     public function questions(){
         return $this->hasMany(Question::class);
     }
+
+    public static function getSpeakingTopics($part){
+        return Topic::wherePassageId(1)->where("part", $part)->get();
+    }
 }
