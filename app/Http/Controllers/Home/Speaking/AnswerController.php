@@ -39,4 +39,11 @@ class AnswerController extends Controller
 
         return redirect()->route("speaking.answers", [$id, $q]);
     }
+
+    public static function delete($id, $q, Request $request){
+        Answer::where("id", $request["id"])
+            ->delete();
+
+        return redirect()->route("speaking.answers", [$id, $q]);
+    }
 }
