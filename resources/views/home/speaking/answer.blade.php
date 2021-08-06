@@ -18,6 +18,7 @@
 
                     <label for="name" class="form-label">Add answer</label>
                     <textarea type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp"
+                              rows="7"
                               required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 w-100 mb-4">Add</button>
