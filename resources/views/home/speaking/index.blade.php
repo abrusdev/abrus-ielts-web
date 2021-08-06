@@ -4,7 +4,7 @@
 
     <div class="container d-flex justify-content-center flex-column align-items-center p-4">
         <div class="col-6 bg-white">
-            <form action="{{ route("speaking.topics") }}" method="POST" class="p-4">
+            <form action="{{ route("speaking.topics.store") }}" method="POST" class="p-4">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Topic's name</label>
@@ -93,6 +93,11 @@
                     <th scope="row">{{ $topic['id'] }}</th>
                     <td>{{ $topic["name"] }}</td>
                     <td>{{ $topic["part"] }}</td>
+                    <td class="col-1">
+                        <form action="{{ route("speaking.questions", $topic['id']) }}" method="GET">
+                            <button class="btn btn-primary">Next</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

@@ -18,6 +18,8 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Topic[] $topics
+ * @property-read int|null $topics_count
  * @method static \Illuminate\Database\Eloquent\Builder|Passage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Passage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Passage query()

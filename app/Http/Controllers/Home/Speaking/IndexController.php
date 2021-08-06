@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Response;
 
 class IndexController extends Controller
 {
-    public static function index(Request $request)
+    public static function index($id = 1, Request $request)
     {
         $passages = Passage::all();
         $topics = Topic::all()->sortByDesc("id");
@@ -19,7 +19,7 @@ class IndexController extends Controller
         return Response::view("home.speaking.index", [
             "passages" => $passages,
             "topics" => $topics,
-            "part" => $request["part"] ?? 1
+            "part" => $id
         ]);
     }
 
@@ -31,8 +31,6 @@ class IndexController extends Controller
             "passage_id" => 1
         ]);
 
-        return redirect()->route("speaking.topics", [
-            "part" => $request["part"]
-        ]);
+        return redirect()->route("speaking.topics", $request["part"]);
     }
 }

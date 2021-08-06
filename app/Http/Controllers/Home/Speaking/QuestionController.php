@@ -16,7 +16,8 @@ class QuestionController extends Controller
         return \Response::view("home.speaking.question", [
             "id" => $id,
             "topic" => $topic["name"],
-            "questions" => $topic->questions
+            "questions" => $topic->questions,
+            "part" => $topic->part
         ]);
     }
 

@@ -36,6 +36,11 @@
                 <tr>
                     <th scope="row">{{ $q['id'] }}</th>
                     <td style="max-width: 100px;word-wrap:break-word;overflow:hidden;">{{ $q["name"] }}</td>
+                    <td class="col-1">
+                        <form action="{{ route("speaking.answers", [$id, $q['id']]) }}" method="GET">
+                            <button class="btn btn-primary">Next</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
