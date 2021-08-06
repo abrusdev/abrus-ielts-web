@@ -37,7 +37,16 @@
             @foreach($answers as $a)
                 <tr>
                     <th scope="row">{{ $a['id'] }}</th>
-                    <td style="max-width: 100px;word-wrap:break-word;overflow:hidden;">{{ $a["content"] }}</td>
+                    <th>
+                        <form action="{{ route("speaking.answers.update", [$id, $q]) }}" method="POST">
+                            @csrf
+                            <input type="text" hidden name="id" id="id" value="{{ $a['id'] }}">
+                            <textarea type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp"
+                                      rows="7"
+                                      required>{{ $a["content"] }}</textarea>
+                            <button class="btn btn-outline-danger mt-2">Update</button>
+                        </form>
+                    </th>
                 </tr>
             @endforeach
             </tbody>

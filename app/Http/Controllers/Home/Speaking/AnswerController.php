@@ -32,4 +32,11 @@ class AnswerController extends Controller
 
         return redirect()->route("speaking.answers", [$id, $q]);
     }
+
+    public static function update($id, $q, Request $request){
+        Answer::where("id", $request["id"])
+            ->update(["content" => $request["name"]]);
+
+        return redirect()->route("speaking.answers", [$id, $q]);
+    }
 }
