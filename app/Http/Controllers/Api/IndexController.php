@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AnswerResource;
+use App\Http\Resources\QuestionResource;
 use App\Http\Resources\TopicResource;
+use App\Models\Answer;
 use App\Models\Passage;
 use App\Models\Question;
 use App\Models\Topic;
@@ -20,6 +23,8 @@ class IndexController extends Controller
             "speaking" => Passage::whereId(1)->first()->topics()->count(),
             "writing" => 0
         ];
+
+        $answers = AnswerResource::collection(Answer::all())->toArray($request);
 
         $passages = [
             [
@@ -47,6 +52,7 @@ class IndexController extends Controller
 
         $data = [
             "data" => $data,
+            "answers" => $answers,
             "passages" => $passages
         ];
         return $data;
