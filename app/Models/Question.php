@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereTopicId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Answer[] $answers
+ * @property-read int|null $answers_count
  */
 class Question extends Model
 {

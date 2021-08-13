@@ -25,7 +25,7 @@ class QuestionController extends Controller
                 "part" => $topic->part
             ]);
 
-        $answers = P2Answer::all();
+        $answers = P2Answer::whereTopicId($id)->get();
         return Response::view("home.speaking.p2-question", [
             "id" => $id,
             "topic" => $topic["name"],
